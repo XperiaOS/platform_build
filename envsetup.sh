@@ -612,12 +612,20 @@ function brunch()
     return $?
 }
 
+function omnom
+{
+    brunch $*
+    eat
+}
+
 function breakfast()
 {
     target=$1
-    CUSTOM_DEVICES_ONLY="true"
+    local variant=$2
+    XPERIA_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
-    for f in `/bin/ls vendor/noobbuilds/vendorsetup.sh 2> /dev/null`
+    add_lunch_combo full-eng
+    for f in `/bin/ls vendor/xperia/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -633,8 +641,11 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the nexus model name
-            lunch $target-user
+            # This is probably just the Xperia model name
+            if [ -z "$variant" ]; then
+                variant="userdebug"
+            fi
+            lunch xperia_$target-$variant
         fi
     fi
     return $?
