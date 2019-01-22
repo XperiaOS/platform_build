@@ -139,7 +139,6 @@ function check_product()
     fi
     if (echo -n $1 | grep -q -e "^xperia_") ; then
         XPERIA_BUILD=$(echo -n $1 | sed -e 's/^xperia_//g')
-        export BUILD_NUMBER=$( (date +%s%N ; echo $XPERIA_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10 )
     else
         XPERIA_BUILD=
     fi
