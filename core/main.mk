@@ -141,7 +141,7 @@ endif
 # -----------------------------------------------------------------
 # Validate ADDITIONAL_BUILD_PROPERTIES.
 ifneq ($(ADDITIONAL_BUILD_PROPERTIES),)
-$(error ADDITIONAL_BUILD_PROPERTIES must not be set before here: $(ADDITIONAL_BUILD_PROPERTIES))
+#$(error ADDITIONAL_BUILD_PROPERTIES must not be set before here: $(ADDITIONAL_BUILD_PROPERTIES))
 endif
 
 ADDITIONAL_BUILD_PROPERTIES :=
